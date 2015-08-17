@@ -25,3 +25,19 @@ exports.index = function(req, res){
 		res.render('quizes/index.ejs', {quizes: quizes});
 	});
 };
+
+exports.new = function(req, res){
+	var quiz = models.Quiz.build(
+		{pregunta: "Pregunta", respuesta: "Respuesta"}
+	);
+	res.render('quizes/new', {quiz: quiz});
+};
+
+exports.create = function(req, res){
+	var quiz = models.Quiz.build(
+		req.body.quiz
+	);
+	quiz.save({fields: ["pregunta", "respuesta"]}).then(function () {
+		res.redirect("/quizes");
+	});
+};
