@@ -18,7 +18,10 @@ exports.answer = function(req, res) {
 };
 
 exports.index = function(req, res){
-	models.Quiz.findAll().then(function (quizes) {
+	if(req.query.search!=""){
+         var info=(req.query.search||"").replace(" ","%");
+     }else{info="";}
+	models.Quiz.findAll({where: ["pregunta like ?",'%'+info+'%'],order:'pregunta ASC'}).then(function (quizes) {
 		res.render('quizes/index.ejs', {quizes: quizes});
 	});
 };
