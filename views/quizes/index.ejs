@@ -5,6 +5,7 @@
 		<% var i; for(i=0; i<quizes.length; i++){ %>
 			<li>
 				<a href='quizes/<%= quizes[i].id %>'><%= quizes[i].pregunta %></a>
+				<a href="quizes/<%= quizes[i].id %>/edit">Editar</a>
 			</li>
 		<% }%>
 	</ol>
