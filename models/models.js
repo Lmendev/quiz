@@ -14,11 +14,13 @@ sequelize.sync().then(function () {
 		if(count === 0){
 			Quiz.create({
 				pregunta: 'Capital de Colombia',
-				respuesta: 'Bogota'
+				respuesta: 'Bogota',
+				tema: 'geografia'
 			})
 			Quiz.create({
 				pregunta: 'Capital de Portugal',
-				respuesta: 'Mamorsi'
+				respuesta: 'Lisboa',
+				tema: 'geografia'
 			})
 			.then(function () {
 				console.log('Base de datos inicializada')

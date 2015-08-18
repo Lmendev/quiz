@@ -3,5 +3,16 @@
 
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"/> <br>
+
+<label for="tem" class="rem">Tema:</label>
+<select name="quiz[tema]" id="tem">
+  <option value="ciencia" <% if("ciencia" === quiz.tema) {%> selected <%}%> >ciencia</option>
+  <option value="geografia"<% if("geografia" === quiz.tema) {%> selected <%}%>>geografia</option>
+  <option value="humanidades"<% if("humanidades" === quiz.tema) {%> selected <%}%>>humanidades</option>
+  <option value="ocio"<% if("ocio" === quiz.tema) {%> selected <%}%>>ocio</option>
+  <option value="tecnologia"<% if("tecnologia" === quiz.tema) {%> selected <%}%>>tecnología</option>
+  <option value="otro" <% if("otro" === quiz.tema) {%> selected <%}%>>otro</option>
+</select><br>
+
 <a href="/quizes"><button type="button">Cancelar</button></a>
 <input type="submit" value="Salvar" />
