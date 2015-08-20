@@ -34,6 +34,10 @@ app.use(function (req, res, next) {
         req.session.redir = req.path;
     }
 
+    if ( req.session.user ){
+        setTimeout(function(){ delete req.session.user; }, 20000);
+    }
+
     //Hacer visible req.session
     res.locals.session = req.session;
     next();
